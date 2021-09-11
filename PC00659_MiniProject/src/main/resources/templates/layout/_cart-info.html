@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="mini-cart">
+		<a th:href="@{/cart/view}" title="Go to cart &rarr;"> <span>{{cart.count}}</span>
+		</a>
+	</div>
+
+</body>
+</html>

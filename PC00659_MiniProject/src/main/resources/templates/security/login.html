@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="no-js"
+	xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layout/index :: mini(~{::main})}">
+
+<!-- Mirrored from alpha.laboutiquetheme.com/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2015 08:25:04 GMT -->
+
+<head>
+<meta charset="UTF-8">
+
+<title>Đăng nhập / Đăng ký</title>
+
+</head>
+
+<body>
+	<main>
+		<div class="wrapper">
+
+			<!-- Content section -->
+			<section class="main">
+
+
+
+				<!-- Login / Register -->
+				<section class="login_register">
+
+
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<!-- Login -->
+								<div class="login">
+									<div class="box">
+										<form enctype="multipart/form-data"
+											th:action="@{/security/login}" method="post">
+
+											<div class="hgroup title">
+												<h3>Đăng nhập</h3>
+												<h5>Vui lòng đăng nhập bằng tài khoản hiện có của bạn</h5>
+											</div>
+											<div class="alert alert-danger">[[${message}]]</div>
+
+											<div class="box-content">
+												<div class="row">
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label class="control-label" for="login_username">Tài
+																khoản</label>
+															<div class="controls">
+																<input class="form-control" id="login_username"
+																	type="text" name="username" value="" />
+															</div>
+														</div>
+													</div>
+
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label class="control-label" for="login_password">Mật
+																khẩu</label>
+															<div class="controls">
+																<input class="form-control" id="login_password"
+																	type="password" name="password" />
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6">
+														<div class="form-group">
+
+															<div class="form-check">
+																<input class="form-check-input" id="login_username"
+																	type="checkbox" name="remember-me" value="" /> <label
+																	class="control-label" for="login_username">Ghi
+																	nhớ tài khoản?</label>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="buttons">
+												<button type="submit"
+													class="btn btn-primary btn-sm btn-block-xs" name="login"
+													value="Login">Đăng nhập</button>
+											
+
+											</div>
+											
+
+
+
+										</form>
+									</div>
+								</div>
+								<!-- End class="login" -->
+							</div>
+
+							
+						</div>
+					</div>
+
+				</section>
+				<!-- End Login / Register -->
+
+			</section>
+			<!-- End class="main" -->
+		</div>
+
+	</main>
+</body>
+
+<!-- Mirrored from alpha.laboutiquetheme.com/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2015 08:25:04 GMT -->
+
+</html>

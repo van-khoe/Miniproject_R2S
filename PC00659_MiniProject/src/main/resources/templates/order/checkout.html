@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="no-js"
+	xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layout/index :: mini(~{::main})}">
+
+<!-- Mirrored from alpha.laboutiquetheme.com/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2015 08:25:34 GMT -->
+<head>
+<meta charset="UTF-8">
+
+<title>Thủ tục thanh toán</title>
+
+
+</head>
+<body>
+	<main>
+
+		<div class="wrapper">
+
+			<!-- Header -->
+
+			<!-- Content section -->
+			<section class="main">
+
+
+
+				<!-- Checkout / Billing Address -->
+				<section class="checkout">
+
+
+					<div class="container">
+						<div th:replace="~{/cart/view :: cart_cart}"></div>
+						<form enctype="multipart/form-data" method="post">
+
+							<div class="row">
+								<div class="col-sm-9">
+									<div class="box">
+
+										<!-- Checkout progress -->
+										<div id="checkout-content">
+											<div class="box-header">
+												<h3>Địa chỉ thanh toán</h3>
+												<h5>Điền vào thông tin chính xác nhất để thanh toán.</h5>
+											</div>
+
+											<div class="box-content">
+												<div class="row">
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="first_name" class="control-label">Người
+																đặt hàng</label>
+															<div class="controls">
+																<div class="form-control" id="account_idaccount">[[${#request.remoteUser}]]</div>
+															</div>
+														</div>
+
+
+
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="last_name" class="control-label">Ngày
+																đặt hàng</label>
+															<div class="controls">
+																<div class="form-control">{{order.createdate |
+																	date: 'dd-MM-yyyy'}}</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="col-sm-12">
+
+														<div class="form-group">
+															<label for="street_address" class="control-label">Địa
+																chỉ giao hàng</label>
+															<div class="controls">
+																<textarea ng-model="order.address" class="form-control"></textarea>
+															</div>
+														</div>
+
+
+
+
+													</div>
+												</div>
+											</div>
+
+											<div class="box-footer">
+
+
+												<button ng-click="order.purchase()"
+													class="btn btn-primary pull-right">
+													Đặt hàng &nbsp; <i class="fa fa-chevron-right"></i>
+												</button>
+											</div>
+										</div>
+										<!-- End id="checkout-progress" -->
+
+										<!-- Checkout content -->
+
+										<!-- End id="checkout-content" -->
+
+									</div>
+								</div>
+
+								<div class="col-sm-3">
+									<div class="box">
+										<!-- Order totals -->
+										<div id="checkout-totals">
+											<div class="hgroup title">
+												<h3>Tổng đơn đặt hàng</h3>
+
+											</div>
+											<ul class="price-list">
+												<li>Tổng số sản phẩm: <strong>{{cart.count}}</strong></li>
+												<li>Tổng tiền: <strong>£{{cart.amount}}</strong></li>
+												<li class="important">Thành tiền: <strong>£{{cart.amount}}</strong></li>
+											</ul>
+										</div>
+										<!-- End id="checkout-totals" -->
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+				<!-- End class="checkout" -->
+
+			</section>
+		</div>
+	</main>
+</body>
+
+<!-- Mirrored from alpha.laboutiquetheme.com/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2015 08:25:34 GMT -->
+</html>

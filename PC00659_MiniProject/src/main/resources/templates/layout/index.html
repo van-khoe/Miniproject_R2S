@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="no-js"
+	xmlns:th="http://www.thymeleaf.org" th:fragment="mini(main)">
+
+<!-- Mirrored from alpha.laboutiquetheme.com/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2015 08:21:49 GMT -->
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="La Boutique HTML v10.0" />
+
+<title>Trang chủ</title>
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/assets/css/flexslider.css" />
+<link rel="stylesheet"
+	href="/assets/js/tfingi-megamenu/tfingi-megamenu-frontend.css" />
+
+<link rel="stylesheet" href="/assets/css/color-schemes/turquoise.css"
+	id="color_scheme" />
+
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=7; IE=8" />-->
+<link rel="icon" href="/assets/favicon.ico" type="/assets/image/x-icon" />
+
+<link
+	href="http://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Shadows+Into+Light"
+	rel="stylesheet">
+</head>
+
+<body ng-app="cart-app" ng-controller="cart-ctrl">
+
+	<div class="wrapper">
+
+		<!-- Header -->
+		<div class="header">
+			<!-- Top bar -->
+			<div class="top">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-sm-12 hidden-xs">
+							<ul class="list-inline pull-right">
+							
+							<th:block th:if="${#request.remoteUser}">
+								<li><a th:href="@{/}">[[${#request.remoteUser}]]</a></li>
+								
+								<li><a th:href="@{/security/logoff}">Đăng xuất</a></li>
+								</th:block>
+								  <th:block th:unless="${#request.remoteUser}">
+								  <li><a th:href="@{/security/login/form}">Đăng nhập</a></li>
+								  </th:block>
+					
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End class="top" -->
+
+			<!-- Logo & Search bar -->
+			<div class="bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-5 col-md-6">
+
+							<!-- Logo -->
+							<div class="logo">
+								<a th:href="@{/}" title="&larr; Back home"> <img
+									src="/assets/img/logoindex.png" alt="La Boutique" />
+								</a>
+							</div>
+							<!-- End class="logo"-->
+
+						</div>
+						<div class="col-sm-5 col-sm-offset-1 col-md-3">
+
+							<!-- Search -->
+							<div class="search">
+								<div class="qs_s">
+
+									<form method="post"
+										action="http://alpha.laboutiquetheme.com/search.html">
+										<input type="text" name="query" id="query"
+											placeholder="Tìm kiếm&hellip;" autocomplete="off" value="">
+									</form>
+
+
+
+								</div>
+							</div>
+							<!-- End class="search"-->
+
+						</div>
+
+						<!-- Mini cart -->
+						<div th:replace="/layout/_cart-info.html"></div>
+						<!-- End class="mini-cart" -->
+
+					</div>
+				</div>
+			</div>
+			<!-- End class="bottom" -->
+
+		</div>
+		<!-- End class="header" -->
+		<!-- Navigation -->
+		<nav class="navigation">
+			<div th:replace="/layout/_menu.html"></div>
+		</nav>
+		<!-- End class="navigation" -->
+
+
+		<!-- Content section -->
+		<section class="main">
+
+			<div class="row">
+				<div class="col-sm-12">
+					<main th:replace="${main}"></main>
+				</div>
+				
+
+			</div>
+
+
+
+		</section>
+		<!-- End class="main" -->
+
+
+		<!-- Footer -->
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-sm-2">
+						<!-- Support -->
+						<div class="support">
+							<h6>Hỗ trợ</h6>
+
+							<ul class="links">
+
+								<li><a href="contact-us.html" title="Contact us"
+									class="title">Liên hệ chúng tôi</a></li>
+							</ul>
+						</div>
+						<!-- End class="support" -->
+
+
+					</div>
+
+					<div class="col-sm-2">
+
+
+						<!-- Pay with confidence -->
+						<div class="confidence">
+							<h6>Thanh toán trực tuyến</h6>
+
+							<img src="/assets/img/stripe.png"
+								alt="Chúng tôi chấp nhận các loại thẻ tín dụng" />
+						</div>
+						<!-- End class="confidence" -->
+					</div>
+
+					<div class="col-sm-4">
+						<h6>Từ Blog</h6>
+
+						<ul class="list-chevron links">
+							<li><a href="#">Bài viết có video</a> <small>05/01/2020</small>
+							</li>
+							<li><a href="#">Bài viết có hình ảnh</a> <small>03/14/2020</small>
+							</li>
+							<li><a href="#">Bài viết có phong cách!</a> <small>08/31/2020</small>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-sm-4">
+
+						<!-- Newsletter subscription -->
+						<div class="newsletter">
+							<h6>Đăng ký bản tin</h6>
+
+							<form onsubmit="return false;" enctype="multipart/form-data"
+								action="#" method="post">
+
+								<div class="input-group">
+									<input type="text" name="email" class="form-control" /> <span
+										class="input-group-addon btn" type="submit"
+										id="newsletter_submit" data-toggle="modal"
+										data-target="#newsletter_subscribe">Go!</span>
+								</div>
+
+							</form>
+
+							<p>Đăng ký để nhận tin tức và cập nhật mới nhất của chúng tôi
+								trực tiếp đến hộp thư đến của bạn</p>
+						</div>
+						<!-- End class="newsletter" -->
+
+
+						<hr />
+
+						<!-- Social icons -->
+						<div class="social">
+							<h6>Xã hội hóa với chúng tôi</h6>
+
+							<ul class="social-icons">
+
+
+								<li><a class="facebook"
+									href="https://www.facebook.com/khoepv/" title="Facebook">Facebook</a>
+								</li>
+
+								<li><a class="youtube"
+									href="https://www.youtube.com/channel/UCUqtOh1OK18jVWYhFPdTJTA"
+									title="YouTube">YouTube</a></li>
+
+
+								<li><a class="instagram"
+									href="https://www.instagram.com/vann.khoe/" title="Instagram">Instagram</a>
+								</li>
+
+							</ul>
+						</div>
+						<!-- End class="social" -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End id="footer" -->
+
+		<!-- Credits bar -->
+		<div class="credits">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8">
+						<p>
+							&copy; 2021 <a href="#" title="La Boutique">Bilo Shop</a>
+							&middot; <a href="#" title="Terms &amp; Conditions">Điều
+								khoản &amp; Điều kiên</a> &middot; <a href="#"
+								title="Privacy policy">Chính sách bảo mật</a> &middot; Bảo lưu
+							mọi quyền.
+						</p>
+					</div>
+					<div class="col-sm-4 text-right hidden-xs">
+						<p>
+							<a href="#"> Mẫu thương mại điện tử đáp ứng của Fungi</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End class="credits" -->
+		<!-- Options panel -->
+		<div class="options-panel">
+			<div class="options-panel-content">
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="option_color_scheme" class="control-label">Bảng
+								màu</label>
+							<div class="controls">
+								<select name="option_color_scheme" id="option_color_scheme" class="col-md-12">
+									<option value="/assets/css/color-schemes/turquoise.css">Màu
+										ngọc lam</option>
+									<option value="/assets/css/color-schemes/greensea.css">Biển
+										xanh</option>
+									<option value="/assets/css/color-schemes/emerland.css">Ngọc
+										lục bảo</option>
+									<option value="/assets/css/color-schemes/nephritis.css">Xanh
+										lục</option>
+									<option value="/assets/css/color-schemes/peterriver.css">Xanh
+										dương</option>
+									<option value="/assets/css/color-schemes/belizehole.css">Xanh
+										biển</option>
+									<option value="/assets/css/color-schemes/amethyst.css">Thạch
+										anh tím</option>
+									<option value="/assets/css/color-schemes/wisteria.css">Hoa
+										Tử Đằng</option>
+									<option value="/assets/css/color-schemes/wetasphalt.css">Nhựa
+										đường ướt</option>
+									<option value="/assets/css/color-schemes/midnightblue.css">Màu
+										xanh nửa đêm</option>
+									<option value="/assets/css/color-schemes/sunflower.css">Hoa
+										hướng dương</option>
+									<option value="/assets/css/color-schemes/orange.css">Quả
+										cam</option>
+									<option value="/assets/css/color-schemes/carrot.css">Cà
+										rốt</option>
+									<option value="/assets/css/color-schemes/pumpkin.css">Quả
+										bí ngô</option>
+									<option value="/assets/css/color-schemes/alizarin.css">Đỏ
+										nhuộm</option>
+									<option value="/assets/css/color-schemes/pomegranate.css">
+										Trái thạch lựu</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="options-panel-toggle">
+				<a href="#" title=""><i class="fa fa-cog"></i></a>
+			</div>
+		</div>
+		<!-- End class="options-panel" -->
+		<!-- Newsletter modal window -->
+		<div id="newsletter_subscribe" class="modal fade" tabindex="-1"
+			role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">×</span>
+						</button>
+						<div class="hgroup title">
+							<h3 id="modal-label">Bạn hiện đã đăng ký nhận bản tin của
+								chúng tôi</h3>
+							<h5>Tất cả các ưu đãi và giao dịch mới nhất sẽ được gửi đến
+								hộp thư đến của bạn trong thời gian ngắn!</h5>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button data-dismiss="modal" aria-hidden="true"
+							class="btn btn-sm btn-block-xs">
+							Đóng &nbsp; <i class="fa fa-check"></i>
+						</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- End id="newsletter_subscribe" -->
+
+	</div>
+
+	<!-- BEGIN JAVASCRIPTS -->
+
+	
+	
+	<script src="/assets/js/jquery-1.11.3.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	
+
+	<script type="text/javascript" src="/assets/js/shopping-cart-app.js"></script>
+
+	<!--[if lt IE 9]>
+<script src="/assets/js/html5shiv.js"></script>
+<![endif]-->
+	
+	<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="/assets/js/isotope.pkgd.min.js"></script>
+	<script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+	<script src="/assets/js/jquery.flexslider.js"></script>
+	<script src="/assets/js/jquery-ui-1.10.2.custom.js"></script>
+	<script src="/assets/js/jquery.sharrre-1.3.5.js"></script>
+	<script src="/assets/js/jquery.cookie.js"></script>
+	<script src="/assets/js/la_boutique.js"></script>
+	<script src="/assets/js/tfingi-megamenu/tfingi-megamenu-frontend.js"></script>
+
+		<script src="/assets/js/jquery.easing.min.js"></script>
+		<script src="/assets/js/jquery.elevatezoom.js"></script>
+
+
+	<!-- END JAVASCRIPTS -->
+
+</body>
+
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="no-js"
+	xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layout/index :: mini(~{::main})}">
+
+<!-- Mirrored from alpha.laboutiquetheme.com/product.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2015 08:25:04 GMT -->
+
+<head>
+<meta charset="UTF-8">
+
+
+<title>Chi tiết sản phẩm</title>
+</head>
+
+<body>
+	<main th:object="${item}" class="poly-item-detail">
+		<div class="wrapper">
+
+			<!-- Header -->
+
+
+			<!-- Content section -->
+			<section class="main">
+
+
+
+				<!-- Product content -->
+				<section class="product">
+
+					<!-- Product info -->
+					<section class="product-info">
+						<div class="container">
+							<div class="row">
+
+								<div class="col-sm-4">
+									<div class="product-images">
+										<div class="box">
+											<div class="primary">
+												<img th:src="@{|/assets/images/*{image}|}"
+													
+													alt="" />
+											</div>
+
+											
+
+											<div class="social">
+												<div id="sharrre">
+													<div class="facebook"></div>
+													<div class="twitter"></div>
+													<div class="pinterest"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-8">
+
+									<!-- Product content -->
+									<div class="product-content">
+										<div class="box">
+
+											<form enctype="multipart/form-data" action="#"
+												onsubmit="return false;" method="post">
+
+												<div class="details">
+													<h1 th:text="*{name}"></h1>
+													<div class="prices">
+														<span class="price" >£[[*{price}]]</span>
+													</div>
+
+													<div class="meta">
+														<div class="sku">
+															<i class="fa fa-pencil"></i> <span rel="tooltip" th:text="*{createdate}"
+																></span>
+														</div>
+
+														<div class="categories">
+															<span><i class="fa fa-tags"></i><a th:href="@{|/product/list?cid=*{category.idcategories}|}" th:text="*{category.name}"></a></span>
+														</div>
+													</div>
+												</div>
+												<div class="add-to-cart">
+													<button class="btn btn-primary btn-lg btn-block-xs" th:attr="ng-click=@{|cart.add(*{idproducts})|}"
+														data-toggle="modal">
+														<i class="fa fa-plus"></i> &nbsp; Thêm vào giỏ hàng
+													</button>
+												</div>
+											</form>
+
+										</div>
+
+
+									</div>
+								</div>
+								 </div>
+					</section>
+					<!-- End class="product-info" -->
+
+					<!-- Product Reviews -->
+					<section class="product-reviews">
+						<div class="container">
+							<div class="col-sm-8 col-sm-offset-2">
+								<h5>
+									Tell us why you <span class="script">love&#10084;</span> this
+									product
+								</h5>
+
+								
+							</div>
+						</div>
+					</section>
+					<!-- End class="product-reviews" -->
+
+					<!-- Related products -->
+					<section class="product-related">
+						<div class="container">
+							<div class="col-sm-12">
+
+								<h5>Không thể tìm thấy những gì bạn đang tìm kiếm? Tại sao
+									không thử những&hellip;</h5>
+
+								<ul class="product-list isotope">
+									<li class="standard" data-price="160" th:each="p:*{category.products}">
+									<a
+										th:href="@{|/product/detail/${p.idproducts}|}">
+
+											<div class="image">
+												<img
+													th:src="@{|/assets/images/${p.image}|}"
+													alt="" />
+													
+
+											</div>
+
+											<div class="title">
+												<div class="prices">
+													<span class="price">£[[${p.price}]]</span>
+												</div>
+												<h3  th:text="${p.name}"></h3>
+
+											</div>
+
+									</a></li>
+
+								</ul>
+							</div>
+						</div>
+						
+					</section>
+					<!-- End class="products-related" -->
+
+				</section>
+				<!-- End class="product-info" -->
+
+			</section>
+			<!-- End class="main" -->
+			 </div>
+	</main>
+</body>
+
+<!-- Mirrored from alpha.laboutiquetheme.com/product.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2015 08:25:18 GMT -->
+
+</html>

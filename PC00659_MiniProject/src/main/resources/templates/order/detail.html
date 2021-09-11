@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layout/index :: mini(~{::main})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<main th:object="${order}">
+		<!-- Content section -->
+		<section class="main">
+
+
+
+			<!-- Checkout / Billing Address -->
+			<section class="checkout">
+				<div class="container">
+					<div class="box">
+						<div id="checkout-content">
+							<div class="box-header">
+								<h3>Địa chỉ thanh toán</h3>
+
+							</div>
+
+							<div class="box-content">
+								<div class="row">
+									<div class="col-sm-4">
+										<label for="first_name" class="control-label">Mã đơn
+											hàng</label>
+										<div class="controls">
+											<input th:field="*{idorders}" class="form-control" readonly="true">
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											<label for="first_name" class="control-label">Người
+												đặt hàng</label>
+											<div class="controls">
+												<input th:field="*{account.idaccounts}" class="form-control"
+													readonly="true">
+											</div>
+										</div>
+
+
+
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											<label for="last_name" class="control-label">Ngày đặt
+												hàng</label>
+											<div class="controls">
+												<input th:field="*{createdate}" class="form-control"
+													readonly="true">
+											</div>
+										</div>
+
+
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+
+										<div class="form-group">
+											<label for="street_address" class="control-label">Địa
+												chỉ giao hàng</label>
+											<div class="controls">
+												<textarea th:field="*{address}" class="form-control"
+													readonly="true"></textarea>
+											</div>
+										</div>
+
+
+
+
+									</div>
+								</div>
+
+							</div>
+
+
+
+						</div>
+
+					</div>
+					<div class="box">
+						<form enctype="multipart/form-data" method="post">
+
+							<div class="box-header">
+								<h3>Giỏ hàng</h3>
+
+							</div>
+
+							<div class="box-content">
+								<div class="cart-items">
+									<table class="styled-table">
+										<thead>
+											<tr>
+												<th class="col_product text-center">Mã sản phẩm</th>
+
+												<th class="col_qty text-center">Tên</th>
+												<th class="col_single text-center">Giá tiền</th>
+												<th class="col_discount text-center">Số lượng</th>
+												<th class="col_total text-center">Tổng tiền</th>
+											</tr>
+										</thead>
+
+										<tbody>
+											<tr th:each="detail:*{orderDetails}" th:object="${detail}">
+
+												<td>[[*{product.idproducts}]]</td>
+
+												<td>[[*{product.name}]]</td>
+												<td>£[[*{#numbers.formatDecimal(price,0,'COMMA',2,'POINT')}]]</td>
+												<td>[[*{quantity}]]</td>
+												<td>£[[*{#numbers.formatDecimal(price*quantity,0,'COMMA',2,'POINT')}]]</td>
+
+
+
+
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+
+						</form>
+					</div>
+
+
+
+				</div>
+			</section>
+		</section>
+
+
+	</main>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-9">
+
+				<a href="#" class="main-menu-button">Điều hướng</a>
+				<!-- Begin Menu Container -->
+				<div class="megamenu_container">
+					<div class="menu-main-navigation-container">
+						<ul id="menu-main-navigation" class="main-menu">
+
+							<li
+								class="menu-item-home menu-item-has-children megamenu-parent "
+								data-width=""><a th:href="@{/}">Trang chủ</a></li>
+								
+								
+							<li class="menu-item-has-children"><a th:href="@{/home/index}">Cửa
+									hàng</a>
+								<ul class="sub-menu">
+										<li th:each="c:${cates}" th:object="${c}"><a  th:href="@{|/product/list?cid=*{idcategories}|}" class="menu-item-has-children"><i class="fa fa-gift"></i> [[*{name}]]</a></li>
+									
+									
+								</ul></li>
+
+									<th:block th:if="${#request.remoteUser}">
+									<li class="menu-item-has-children"><a th:href="@{/order/list}">Lịch sử mua hàng</a></li>
+								<li class="menu-item-has-children" th:if="${#request.isUserInRole('ADMIN') or #request.isUserInRole('PM')}">
+								<a th:href="@{/admin/home/index}">Trang quản trị</a></li>
+</th:block>
+						</ul>
+					</div>
+				</div>
+
+
+
+			</div>
+
+			<div class="col-md-3 visible-lg"></div>
+		</div>
+
+	</div>
+
+
+</body>
+</html>

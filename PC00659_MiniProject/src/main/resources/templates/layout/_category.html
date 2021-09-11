@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="widget Categories">
+		<h3 class="widget-title widget-title "><i class="fa fa-briefcase"></i> Thể loại</h3>
+		<ul>
+
+
+			<li><a th:each="c:${cates}" th:object="${c}" th:href="@{|/product/list?cid=*{idcategories}|}" class="title"><i class="fa fa-gift"></i> [[*{name}]]</a></li>
+
+
+		</ul>
+	</div>
+
+</body>
+</html>

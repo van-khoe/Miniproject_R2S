@@ -1,0 +1,78 @@
+<div class="card">
+	<div class="card-header">Chỉnh sửa sản phẩm</div>
+	<div class="card-body">
+		<div class="row">
+			<div class="col-sm-4 text-center">
+				<label for="image"> <img
+					ng-src="{{'/assets/images/' + form.image}}"
+					style="max-width: 100%;height: 250px;" class="img-fluid" alt="...">
+				</label>
+			</div>
+			<div class="col-sm-8">
+				<div class="row">
+					<div class="col-sm-6">
+						<label for="exampleInputName" class="form-label" >Name</label> <input
+						ng-model="form.name"	class="form-control" id="exampleInputName">
+					</div>
+					<div class="col-sm-6">
+						<label for="exampleInputPrice" class="form-label" >Price</label> <input
+						ng-model="form.price"	class="form-control" id="exampleInputPrice">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<label for="exampleInputImage" class="form-label">Image</label> <input
+							type="file" id="image" class="form-control" onchange="angular.element(this).scope().imageChanged(this.files)"
+							id="exampleInputImage">
+					</div>
+					<div class="col-sm-6">
+						<label class="form-label">Category</label> <select
+						ng-model="form.category.id"	class="form-select" aria-label="Default select example">
+
+							<option ng-repeat="c in cates" ng-value="c.id">{{c.name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<label for="exampleInputDate" class="form-label">Create
+							Date</label> <input type="date" class="form-control" ng-model="form.createDate"
+							id="exampleInputDate">
+					</div>
+					<div class="col-sm-6">
+						<label for="exampleInputPrice" class="form-label">Available?</label>
+						<div class="form-control">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="available" ng-model="form.available"
+									id="inlineRadio1" ng-value="true"> <label
+									class="form-check-label" for="inlineRadio1">Yes</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="available"  ng-model="form.available"
+									id="inlineRadio2" ng-value="false"> <label
+									class="form-check-label" for="inlineRadio2">No</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card-footer text-center">
+			<div class="btn-group" role="group"
+				aria-label="Basic mixed styles example">
+				<button type="button" ng-click="create()" class="btn btn-primary">
+					<i class="	fa fa-plus"></i> Create
+				</button>
+				<button type="button" ng-click="update()" class="btn btn-success">
+					<i class="fa fa-save"></i> Update
+				</button>
+				<button type="button" ng-click="delete(form)" class="btn btn-danger">
+					<i class="fa fa-trash"></i> Delete
+				</button>
+				<button type="button" ng-click="reset()" class="btn btn-info">
+					<i class="fa fa-refresh"></i> Reset
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

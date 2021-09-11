@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="no-js"
+	xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layout/index :: mini(~{::main})}">
+
+<!-- Mirrored from alpha.laboutiquetheme.com/order-history.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2015 08:25:34 GMT -->
+<head>
+<meta charset="UTF-8">
+
+
+<title>Lịch sử đơn hàng</title>
+
+</head>
+<body>
+	<main>
+		<div class="wrapper">
+
+			<!-- Header -->
+
+			<!-- Content section -->
+			<section class="main">
+
+
+
+				<!-- Order history -->
+				<section class="orders">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8">
+								<div class="box">
+									<div class="box-header">
+										<h3>Lịch sử đơn hàng</h3>
+
+										<h5>Kiểm tra trạng thái đơn hàng của bạn, thanh toán cho
+											các đơn hàng chưa thanh toán của bạn và hơn thế nữa!</h5>
+									</div>
+
+									<div class="box-body">
+										<table class="styled-table orders">
+											<thead>
+												<tr>
+													<th class="col_id">No.</th>
+													<th class="col_id">Order no.</th>
+
+													<th class="col_date">Ngày đặt hàng</th>
+
+													<th class="col_count">Địa chỉ giao hàng</th>
+
+
+													<th class="col_view hide-for-small">&nbsp;</th>
+												</tr>
+											</thead>
+
+											<tbody>
+												<tr th:each="order,state:${orders}" th:object="${order}">
+													<td data-title="
+                               No."
+														class="col_id">[[${state.index}]]</td>
+
+													<td data-title="Order
+                                no."
+														class="col_id">[[*{idorders}]]</td>
+
+													<td data-title="Order
+                                date"
+														class="col_date">[[*{createdate}]]</td>
+
+													<td data-title="Shipping Address" class="col_count">
+														[[*{address}]]</td>
+
+
+
+
+													<td data-title="View
+                                "
+														class="col_view text-right"><a class="btn btn-xs"
+														th:href="@{|/order/detail/*{idorders}|}">View &nbsp; <i
+															class="fa fa-chevron-right"></i></a></td>
+												</tr>
+
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-sm-4">
+								<div class="box">
+									<div class="box-header">
+										<h3>Số liệu thống kê về đơn hàng</h3>
+
+										<h5>Một vài thống kê về bạn</h5>
+									</div>
+
+									<div class="box-body">
+										<ul class="price-list">
+
+											<li>Tổng đơn hàng đã đặt: <strong>[[${countid}]]</strong></li>
+
+											<li>Tổng số mặt hàng: <strong>[[${qtyid}]]</strong></li>
+
+											<li class="important">Tổng tiền chi: <strong>&pound;[[${priid}]]</strong></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+			</section>
+		</div>
+	</main>
+</body>
+
+<!-- Mirrored from alpha.laboutiquetheme.com/order-history.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2015 08:25:34 GMT -->
+</html>

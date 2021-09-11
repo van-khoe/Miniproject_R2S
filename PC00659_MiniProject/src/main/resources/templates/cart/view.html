@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="no-js"
+	xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layout/index :: mini(~{::main})}">
+
+<!-- Mirrored from alpha.laboutiquetheme.com/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2015 08:25:18 GMT -->
+
+<head>
+<meta charset="UTF-8">
+
+
+<title>Giỏ hàng</title>
+
+</head>
+
+<body>
+	<main>
+		<div class="wrapper">
+
+			<!-- Header -->
+
+			<!-- Content section -->
+			<section class="main">
+
+
+
+				<!-- Cart container -->
+				<section class="cart">
+
+
+
+					<div class="container" style="padding-right: 10px">
+						<div class="row">
+
+							<div class="col-sm-12">
+
+								<!-- Cart -->
+								<div class="box" th:fragment="cart_cart">
+									<form enctype="multipart/form-data" 
+										method="post">
+
+										<div class="box-header">
+											<h3>Giỏ hàng</h3>
+
+										</div>
+
+										<div class="box-content">
+											<div class="cart-items">
+												<table class="styled-table">
+													<thead>
+														<tr>
+															<th class="col_product text-center">Mã sản phẩm</th>
+															<th class="col_remove text-center">&nbsp;</th>
+															<th class="col_qty text-center">Tên</th>
+															<th class="col_single text-center">Giá tiền</th>
+															<th class="col_discount text-center">Số lượng</th>
+															<th class="col_total text-center">Tổng tiền</th>
+														</tr>
+													</thead>
+
+													<tbody>
+														<tr ng-repeat="item in cart.items">
+
+															<td>{{item.idproducts}}</td>
+															<td>
+																<button ng-click="cart.remove(item.idproducts)"
+																	class="btn btn-sm btn-danger">
+																	<i class="fa fa-trash fa-lg"></i>
+																</button>
+															</td>
+															<td>{{item.name}}</td>
+															<td>£{{item.price | number: 2}}</td>
+															<td><input ng-change="cart.saveToLocalStorage()"
+																ng-model="item.qty" type="number" min="1"
+																style="width: 60px;"></td>
+															<td>£{{item.price*item.qty | number: 2}}</td>
+
+
+
+
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+
+										<div class="box-footer cart-footer">
+											<a th:href="@{/}" class="btn btn-sm pull-left"> <i
+												class="fa fa-chevron-left"></i> &nbsp; Tiếp tục mua sắm
+											</a>
+											<div class="pull-right">
+												<button type="submit" ng-click="cart.clear()"
+													class="btn btn-sm">
+													<i class="fa fa-undo"></i> &nbsp; Xóa giỏ hàng
+												</button>
+											<div ng-if="cart.items[0]">
+											<div class="pull-right">
+												<a th:href="@{/order/checkout}"
+													class="btn btn-primary btn-sm"> Thanh toán &nbsp; <i
+													class="fa fa-chevron-right"></i>
+												</a>
+												</div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+								<!-- End Cart -->
+
+
+
+							</div>
+							<div class=" col-sm-3 col-sm-offset-9">
+								<!-- Cart details -->
+								<div class="cart-details">
+									<div class="box">
+										<div class="hgroup title">
+											<h3>Tổng đơn đặt hàng</h3>
+											<h5>Chi phí vận chuyển và thuế sẽ được đánh giá trong
+												thời gian Thủ tục thanh toán</h5>
+										</div>
+
+										<ul class="price-list">
+											<li>Tổng số sản phẩm: <strong>{{cart.count}}</strong></li>
+											<li class="important">Tổng tiền: <strong>£{{cart.amount}}</strong></li>
+										</ul>
+									</div>
+								</div>
+								<!-- End class="cart-details" -->
+							</div>
+						</div>
+
+
+
+
+
+					</div>
+				</section>
+				<!-- End Cart container -->
+
+			</section>
+			<!-- End class="main" -->
+		</div>
+	</main>
+
+</body>
+
+<!-- Mirrored from alpha.laboutiquetheme.com/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2015 08:25:20 GMT -->
+
+</html>

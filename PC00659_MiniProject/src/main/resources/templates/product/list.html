@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layout/index :: mini(~{::main})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<main >
+		<!-- Home content -->
+		<section class="home">
+
+			<!-- Slider -->
+			<section class="flexslider">
+				<ul class="slides">
+					<li><img src="/assets/img/slides/1.jpg" alt="" />
+						<div class="caption">
+							<div class="container">
+								<div class="col-md-6">
+									<h3>Top những sản phẩm hàng đầu</h3>
+									<br />
+									<p>Chất lượng sản phẩm đạt tiêu chuẩn quốc tế</p>
+									<br /> <a class="btn btn-sm" title="" href="#">Tìm hiểu
+										thêm &nbsp; <em class="fa fa-chevron-right"></em>
+									</a>
+
+								</div>
+							</div>
+						</div></li>
+					<li><img src="/assets/img/slides/2.jpg" alt="" />
+						<div class="caption">
+							<div class="container">
+								<div class="col-md-6">
+									<h3>Top 7 shop bán chân váy đẹp nhất TPHCM</h3>
+									<br />
+									<p>Chân váy là loại trang phục được nhiều cô gái yêu thích
+										bởi vẻ điệu đà nữ tính và làm tôn dáng người mặc, từ chân váy
+										ngắn đến chân váy dài đều có muôn kiểu phối đồ khác nhau tùy
+										sở thích.</p>
+									<br /> <a class="btn btn-sm" title="" href="#">Tìm hiểu
+										thêm &nbsp; <em class="fa fa-chevron-right"></em>
+									</a>
+
+								</div>
+							</div>
+						</div></li>
+					<li><img src="/assets/img/slides/3.jpg" alt="" />
+						<div class="caption">
+							<div class="container">
+								<div class="col-md-6 col-md-offset-6 text-right">
+									<h3>Chạy bộ mặc gì hợp và dễ chịu nhất?</h3>
+									<br />
+									<p>Khi đề cập đến vấn đề chạy bộ mặc gì, bạn cần tập trung
+										chủ yếu đến chất liệu vải...</p>
+									<br /> <a class="btn btn-sm" title="" href="#">Tìm hiểu
+										thêm &nbsp; <em class="fa fa-chevron-right"></em>
+									</a>
+								</div>
+							</div>
+						</div></li>
+					<li><img src="/assets/img/slides/4.jpg" alt="" />
+						<div class="caption">
+							<div class="container">
+								<div class="col-md-6 col-md-offset-6 text-right">
+									<h3>Cách bảo quản quần áo dài lâu, luôn như mới</h3>
+									<br />
+									<p>Nếu như giặt và phơi áo không đúng cách, áo thun
+										của bạn sẽ rất nhanh xuống cấp và bị hỏng...</p>
+									<br /> <a class="btn btn-sm" title="" href="#">Tìm hiểu
+										thêm &nbsp; <em class="fa fa-chevron-right"></em>
+									</a>
+								</div>
+							</div>
+						</div></li>
+				</ul>
+			</section>
+			<!-- End class="flexslider" -->
+			<!-- Promos -->
+			
+			<section class="promos">
+				<div >
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="free-shipping">
+								<div class="box border-top">
+									<img src="/assets/img/free-shipping.png" alt="" />
+									<div class="hgroup title">
+										<h3>Vận chuyển miễn phí!</h3>
+										<h5>Trên toàn quốc</h5>
+									</div>
+									<p></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="world-shipping">
+								<div class="box border-top">
+									<img src="/assets/img/world-shipping.png" alt="" />
+									<div class="hgroup title">
+										<h3>Hoạt động trên toàn cầu!</h3>
+										<h5>Thảnh thơi mua sắm</h5>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="low-price">
+								<div class="box border-top">
+									<img src="/assets/img/low-price.png" alt="" />
+									<div class="hgroup title">
+										<h3>Giá cả hợp lý!</h3>
+										<h5>Rẻ nhất trên thị trường</h5>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End class="promos" -->
+
+			<section class="featured">
+				<div >
+
+					<div class="row">
+						<div class="col-sm-9">
+							<!-- Products list -->
+
+							<ul class="product-list isotope">
+								<li th:each="p:${items}" th:object="${p}" class="standard">
+									<div class="panel panel-default">
+										
+											<a class="poly-item" th:href="@{|/product/detail/*{idproducts}|}">
+												<div class="image">
+													<img th:src="@{|/assets/images/*{image}|}"
+														class="card-img-top" alt="">
+												</div>
+												<div class="title">
+													<div class="prices">
+														<span class="price">£[[*{price}]]</span>
+													</div>
+													<h3 th:utext="*{name}"></h3>
+
+
+
+												</div>
+											</a>
+											
+							<div class="panel-footer text-right">
+							<button th:attr="ng-click=@{|cart.add(*{idproducts})|}"
+										type="button" class="btn btn-primary">
+										<i class="fa fa-shopping-cart"></i>
+									</button>
+									<button 
+										type="button" class="btn btn-danger">
+										<i class="fa fa-heart"></i>
+									</button>
+							</div>
+									</div>
+								</li>
+							</ul>
+
+							<!-- End class="product-list isotope" -->
+							
+							<div class="row">
+								<div class="col-sm-12 text-center">
+									
+										<ul class="pager">
+											<li><a 
+												th:href="@{|/product/list?p=0|}">First</a></li>
+											<li><a 
+												th:href="@{|/product/list?p=${page.number-1 < 0 ? page.totalPages -1 : page.number-1}|}">Previous</a></li>
+											<li><a 
+												th:href="@{|/product/list?p=${page.number+1 > page.totalPages-1 ? 0 : page.number+1}|}">Next</a></li>
+											<li><a 
+												th:href="@{|/product/list?p=${page.totalPages-1}|}">Last</a></li>
+										</ul>
+									
+								</div>
+							</div>
+						</div>
+	<div class="col-sm-3">
+					<!-- Categories widget -->
+
+					<div th:replace="/layout/_category.html"></div>
+
+					<!-- End class="widget Categories" -->
+					<div class="widget Partial">
+						<h3 class="widget-title widget-title ">Mới cho mùa hè 2021</h3>
+						<ul class="adverts">
+							<li><a
+								href="https://www.thuongdo.com/mau-quan-ao-nu-hot-xuan-he-2020"
+								class="advert"> <img src="/assets/img/adverts/advert-1.jpg" alt="" />
+							</a></li>
+
+							<li><a
+								href="https://loza.vn/blog/06-mau-ao-thun-co-be-dep-nhat-he-2021"
+								class="advert"> <img src="/assets/img/adverts/advert-2.jpg" alt="" />
+							</a></li>
+						</ul>
+					</div>
+
+				</div>
+
+					</div>
+
+				</div>
+			</section>
+			
+
+		</section>
+		<!-- End class="home" -->
+
+	</main>
+</body>
+</html>
